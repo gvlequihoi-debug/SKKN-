@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SKKN Writer AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Roboto', 'sans-serif'],
+              serif: ['Merriweather', 'serif'],
+            },
+            colors: {
+              primary: '#581c87', // purple-900 (Dark Purple)
+              secondary: '#fbbf24', // amber-400
+              paper: '#fdfbf7',
+            },
+            animation: {
+              'spin-slow': 'spin 3s linear infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom print styles for the document view */
+      @media print {
+        .no-print { display: none; }
+        .print-only { display: block; }
+        body { background: white; }
+        .paper-view { box-shadow: none; margin: 0; padding: 0; }
+        .neon-border, .neon-glow-text { animation: none !important; box-shadow: none !important; border-color: #ccc !important; }
+      }
+      .paper-shadow {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      /* NEON EFFECTS - YELLOW/GOLD VERSION */
+      @keyframes neon-pulse {
+        0%, 100% {
+          box-shadow: 0 0 5px rgba(251, 191, 36, 0.5), 0 0 10px rgba(251, 191, 36, 0.3);
+          border-color: rgba(251, 191, 36, 0.6);
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(251, 191, 36, 0.9), 0 0 35px rgba(251, 191, 36, 0.7);
+          border-color: rgba(251, 191, 36, 1);
+        }
+      }
+
+      .neon-border {
+        border: 2px solid transparent;
+        animation: neon-pulse 3s infinite alternate ease-in-out;
+      }
+
+      @keyframes text-glow {
+        0%, 100% { text-shadow: 0 0 5px rgba(251, 191, 36, 0.5); }
+        50% { text-shadow: 0 0 20px rgba(251, 191, 36, 1), 0 0 30px rgba(251, 191, 36, 0.8); }
+      }
+
+      .neon-text-gold {
+        animation: text-glow 2s infinite alternate;
+      }
+
+      .ambient-glow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* Changed to yellow/amber tint */
+        background: radial-gradient(circle at 50% 20%, rgba(251, 191, 36, 0.15), transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-markdown": "https://esm.sh/react-markdown@^10.1.0",
+    "docx": "https://esm.sh/docx@8.5.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
